@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c06f216286ff3189bd74ac3e4f2a5e2bf3dbcf20c60bf9f8d99b658f5f3f1e5a
-size 585
+import React from "react";
+import { CSSTransition } from "react-transition-group";
+
+
+export default function BackgroundVideo(props) {
+
+  const nodeRef = React.useRef(null);
+
+  return (
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={props.active}
+      appear
+      classNames="background"
+      timeout={2000}
+    >
+      <video
+        ref={nodeRef}
+        className="background"
+        preload="auto"
+        autoPlay="autoplay"
+        muted
+        loop="loop"
+      >
+        <source src={props.video} type="video/mp4"></source>
+      </video>
+    </CSSTransition>
+  );
+}

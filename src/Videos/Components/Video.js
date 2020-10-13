@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8426e59f59f186507694292d2f84ae231eb5e75c3ef3c23b8ea6a398208628df
-size 355
+import React from "react";
+
+import ReactPlayer from "react-player/lazy";
+
+export default function Video(props) {
+
+  const nodeRef=React.useRef(null)
+  
+  const video = (
+    <ReactPlayer
+      ref={nodeRef}
+      controls
+      url={props.src}
+      loop
+      className="videos-loop"
+      width="100%"
+      height="100%"
+    />
+  );
+
+  return video;
+}
