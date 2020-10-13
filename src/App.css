@@ -1,3 +1,267 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0eb97a75d15065810549f87e5ec71c4887a84e773f6a379c719d0ff77cdf1d9e
-size 3633
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap");
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: orange;
+  text-align: center;
+  justify-content: center;
+}
+
+/* #backgroundVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -999;
+} */
+.background-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  position: fixed;
+  top: 50%;
+  left: -250%;
+  transform: translate(-50%, -50%);
+
+  z-index: -100;
+}
+
+.background-appear {
+  left: 50%;
+}
+
+.background-appear-active {
+  left: 50%;
+}
+
+.background-appear-done {
+  left: 50%;
+}
+
+.background-enter {
+  left: -250%;
+  z-index: -99;
+}
+
+.background-enter-active {
+  transition: left 2s ease-in-out;
+  left: 50%;
+}
+
+.background-enter-done {
+  left: 50%;
+}
+
+.background-exit {
+  left: 50%;
+}
+
+.background-exit-active {
+  transition: left 2s ease-in-out;
+  left: 350%;
+}
+
+.background-exit-done {
+  left: -250%;
+}
+
+.background-appear-done {
+  left: 50%;
+}
+
+.welcome {
+  font-size: 5em;
+
+  line-height: 3em;
+  color: white;
+
+  /* position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+}
+
+a {
+  text-decoration: none;
+}
+
+.welcome-container {
+  font-size: 1em;
+  opacity: 1;
+  margin: auto;
+}
+
+.welcome-links {
+  padding-left: 6em;
+  padding-right: 6em;
+  margin: 2em;
+  display: inline-block;
+  text-align: center;
+}
+
+li.welcome-links {
+  transition: background-color 2s ease-in-out;
+  color: white;
+  height: 3em;
+
+  border: 2px solid white;
+}
+
+li.welcome-links:hover {
+  background-color: rgba(90, 200, 200, 0.7);
+}
+
+.welcome-exit {
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}
+.welcome-exit-active {
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+}
+
+.welcome-exit-done {
+  opacity: 0;
+  display: none;
+}
+
+.welcome-enter {
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+}
+
+.welcome-enter-active {
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}
+
+.welcome-enter-done {
+  opacity: 1 !important;
+}
+
+.welcome-appear-done {
+  opacity: 1 !important;
+}
+
+.videos-loop {
+  display: none;
+}
+
+.videos-loop-appear-done {
+  display: block;
+}
+
+.videos-loop-enter-done {
+  display: block;
+}
+
+.music-container {
+  pointer-events: none;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.music {
+  margin: auto;
+  margin-top: 5%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  display: none;
+  pointer-events: all;
+}
+
+.music-appear-done {
+  opacity: 1;
+  display: flex !important;
+}
+
+.music-enter {
+  opacity: 0;
+  display: flex !important;
+  transition: opacity 2s ease-in-out;
+}
+
+.music-enter-active {
+  opacity: 0;
+  display: flex !important;
+  transition: opacity 2s ease-in-out;
+}
+
+.music-enter-done {
+  opacity: 1;
+  display: flex !important;
+}
+
+.follow-button {
+  margin: 5em;
+  margin-bottom: 5%;
+  margin-top: 5%;
+
+  opacity: 1;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin: auto;
+  height: 25em;
+  width: 50em;
+}
+
+.news {
+  margin: 0.1em auto;
+
+  color: white;
+}
+
+.news-container {
+  display: none;
+}
+
+.news-appear-done {
+  display: inherit !important;
+}
+
+.news-enter-done {
+  display: inherit !important;
+}
+
+h1.news {
+  font-size: 10em;
+}
+
+p.news {
+  text-align: left;
+  text-indent: 1em;
+  margin: 2em;
+  padding: 2em;
+  border: 1px solid white;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    height: 15em;
+    width: 30em;
+  }
+
+  .welcome-links {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
