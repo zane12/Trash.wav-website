@@ -5,6 +5,7 @@ import ReactPlayer from "react-player/lazy";
 export default function Video(props) {
 
   const nodeRef=React.useRef(null)
+  console.log(props.src)
   
   const video = (
     <ReactPlayer
