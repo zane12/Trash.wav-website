@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 import BackgroundVideo from "../../Videos/Components/BackgroundVideo";
-import welcomeVideo from "../../Videos/trashwav-axel.mp4";
+
 import logo from "../../Interface/Images/trashwavlogo.png";
 
 const Routes = React.lazy(() => import("./Routes"));
@@ -14,7 +14,7 @@ export default function Welcome(props) {
 
   return (
     <Router>
-      <BackgroundVideo video={welcomeVideo} active={true} />
+      <BackgroundVideo video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
       <CSSTransition nodeRef={nodeRef} appear in={active} classNames="welcome" timeout={2000}>
         <div ref={nodeRef} className="welcome welcome-container">
           <Link to="/">
