@@ -1,4 +1,4 @@
-import React/*, { Suspense }*/ from "react";
+// import React, { Suspense } from "react";
 //import { CSSTransition } from "react-transition-group";
 
 // import video1 from "../../Videos/river rat.mp4";
