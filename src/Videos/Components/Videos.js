@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { CSSTransition } from "react-transition-group";
+import React/*, { Suspense }*/ from "react";
+//import { CSSTransition } from "react-transition-group";
 
 // import video1 from "../../Videos/river rat.mp4";
 // import video2 from "../../Videos/go.mp4";
@@ -21,7 +21,7 @@ import { CSSTransition } from "react-transition-group";
 // import video18 from "../../Videos/sneeze_Medium.mp4";
 // import video19 from "../../Videos/space love_Medium.mp4";
 
-const Video = React.lazy(() => import("./Video"));
+//const Video = React.lazy(() => import("./Video"));
 
 export default function Videos(props) {
   // const videos = [
