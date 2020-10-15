@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 import BackgroundVideo from "../../Videos/Components/BackgroundVideo";
-import welcomeVideo from "../../Videos/trashwav-axel-fix.mp4";
+import welcomeVideo from "../../Videos/trashwav-axel.mp4";
 import logo from "../../Interface/Images/trashwavlogo.png";
 
 const Routes = React.lazy(() => import("./Routes"));
