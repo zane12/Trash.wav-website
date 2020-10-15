@@ -16,7 +16,7 @@ export default function BackgroundVideo(props) {
       timeout={2000}
     >
       <video
-        onCanPlay={() => { props.onCanPlay(true) }}
+        onCanPlayThrough={() => { props.onCanPlayThrough(true) }}
         ref={props.ref}
         className="background"
         preload="auto"
