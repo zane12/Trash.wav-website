@@ -1,0 +1,19 @@
+.trash-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  height: 10em;
+  width: 10em;
+  margin-top: -5em;
+  margin-left: -5em;
+
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

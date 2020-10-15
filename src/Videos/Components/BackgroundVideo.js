@@ -4,18 +4,20 @@ import { CSSTransition } from "react-transition-group";
 
 export default function BackgroundVideo(props) {
 
-  const nodeRef = React.useRef(null);
-
+  
+  
+  
   return (
     <CSSTransition
-      nodeRef={nodeRef}
+      nodeRef={props.ref}
       in={props.active}
       appear
       classNames="background"
       timeout={2000}
     >
       <video
-        ref={nodeRef}
+        onCanPlay={() => { props.onCanPlay(true) }}
+        ref={props.ref}
         className="background"
         preload="auto"
         autoPlay="autoplay"

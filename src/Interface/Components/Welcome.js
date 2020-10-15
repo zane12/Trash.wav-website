@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 import BackgroundVideo from "../../Videos/Components/BackgroundVideo";
+import TrashSpinner from "./TrashSpinner"
 
 import logo from "../../Interface/Images/trashwavlogo.png";
 
@@ -10,12 +11,18 @@ const Routes = React.lazy(() => import("./Routes"));
 
 export default function Welcome(props) {
   const [active, setActive] = useState(true);
+  const [bgLoaded, setBgLoaded] = useState(false);
   const nodeRef = React.useRef(null);
+  
+  
+  
 
   return (
     <Router>
-      <BackgroundVideo video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
-      <CSSTransition nodeRef={nodeRef} appear in={active} classNames="welcome" timeout={2000}>
+      
+      <BackgroundVideo onCanPlay={setBgLoaded}  video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
+      
+      {bgLoaded ? <span><CSSTransition nodeRef={nodeRef} appear in={active} classNames="welcome" timeout={2000}>
         <div ref={nodeRef} className="welcome welcome-container">
           <Link to="/">
             <img className="logo" src={logo} alt="logo" />
@@ -43,6 +50,7 @@ export default function Welcome(props) {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes setActive={setActive} />
       </Suspense>
+      </span> : <TrashSpinner />}
     </Router>
   );
 }
