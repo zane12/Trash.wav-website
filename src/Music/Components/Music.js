@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import BackButton from '../../Interface/Components/BackButton'
 
 export default function Music(props) {
+  const [active, setActive] = useState(false)
+  
   return (
     <div>
       <div className="music-container">
         <CSSTransition
           key={`music`}
-          in={props.active}
+          in={props.active && active}
           appear
           classNames="music"
           timeout={2000}
         >
           <iframe
+            onLoad={() => setActive(true)}
             className="music"
             title="spotifyPlayer"
             src="https://open.spotify.com/embed/album/5C2hnvySPsH2irXfM2WjNT"
@@ -42,6 +46,7 @@ export default function Music(props) {
           allowtransparency="true"
         ></iframe>
       </CSSTransition>
+      <BackButton active={props.active} />
     </div>
   );
 }

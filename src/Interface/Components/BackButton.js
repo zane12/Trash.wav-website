@@ -8,7 +8,7 @@ export default function BackButton(props) {
     if(props.active && !active) setTimeout(() => {setActive(true) }, 2100)
     if(!props.active && active) setActive(false);
 
-    if(active) return <Link to="/"><img alt="" src={logo} className="back-button"></img></Link>
+    if(active) return <Link to="/"><img onLoad={props.onLoad} alt="" src={logo} className="back-button"></img></Link>
     
     return null;
 }

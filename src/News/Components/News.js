@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import BackButton from "../../Interface/Components/BackButton";
 
 export default function News(props) {
+  const [active, setActive] = useState(false)
+  
+  
+
+
   return (
     <div>
       <CSSTransition
         key="news"
-        in={props.active}
+        in={props.active && active}
         classNames="news"
         timeout={2000}
       >
@@ -24,7 +30,7 @@ export default function News(props) {
       </CSSTransition>
       <CSSTransition
         key="news2"
-        in={props.active}
+        in={props.active && active}
         classNames="news"
         timeout={2000}
       >
@@ -40,6 +46,7 @@ export default function News(props) {
           </p>
         </div>
       </CSSTransition>
+      <BackButton onLoad={()=>setActive(true)} active={props.active}/>
     </div>
   );
 }
