@@ -1,25 +1,12 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import { Swipeable } from 'react-swipeable'
 
-// import video1 from "../../Videos/river rat.mp4";
-// import video2 from "../../Videos/go.mp4";
-// import video3 from "../../Videos/bedtime stories_Medium.mp4";
-// import video4 from "../../Videos/boxing_Medium.mp4";
-// import video5 from "../../Videos/bert day_Medium.mp4";
-// import video6 from "../../Videos/beckon_Medium.mp4";
-// import video7 from "../../Videos/brother_Medium.mp4";
-// import video8 from "../../Videos/boomclap_Medium.mp4";
-// import video9 from "../../Videos/day off_Medium.mp4";
-// import video10 from "../../Videos/fixedone_Medium.mp4";
-// import video11 from "../../Videos/harbee_Medium.mp4";
-// import video12 from "../../Videos/IM SO BORED_Medium.mp4";
-// import video13 from "../../Videos/kirby.mp4";
-// import video14 from "../../Videos/losing sleep_Medium.mp4";
-// import video15 from "../../Videos/radio_Medium.mp4";
-// import video16 from "../../Videos/running_Medium.mp4";
-// import video17 from "../../Videos/sleep more_Medium.mp4";
-// import video18 from "../../Videos/sneeze_Medium.mp4";
-// import video19 from "../../Videos/space love_Medium.mp4";
+
+import BackButton from '../../Interface/Components/BackButton'
+import TrashSpinner from '../../Interface/Components/TrashSpinner'
+import '../videos.css'
+
 
 const Video = React.lazy(() => import("./Video"));
 
@@ -67,23 +54,103 @@ export default function Videos(props) {
     video19,
   ];
 
-  
+  const refs = [
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(), 
+  ]
 
-  return videos.map((video, i) => {
+  const [playing, setPlaying] = useState(null);
+  const [throttled, setThrottled] = useState(false);
+  const [active, setActive] = useState(0);
+  const [ready, setReady] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(false)
+  
+  
+  
+  function scrollToVideo(e) {
+    
+    
+
+    let nextVid = active + 1;
+    if(nextVid > 18) nextVid = 0;
+    let prevVid = active - 1;
+    if(prevVid < 0) prevVid = 18;
+    
+      if(!throttled){
+
+        if(e.deltaY > 0) {
+          setScrollDirection(false)
+          setActive(nextVid)  
+          setThrottled(true)
+          
+          setTimeout(() => {setThrottled(false)}, 2100)
+        }; //scroll down
+
+        if(e.deltaY < 0){
+          setScrollDirection(true)
+          setActive(prevVid)
+          setThrottled(true)          
+          setTimeout(() => {setThrottled(false)}, 2100)
+         
+        } ; //scroll up          
+      }        
+    
+  }
+
+
+  
+ 
+
+  const videoComponents = videos.map((video, i) => {
+
+   
+    const isActive = active === i;   
+      
     return (
-      <CSSTransition
-        
+      <Swipeable onSwiped={scrollToVideo} onSwipedDown={(e)=> {
+        e.event.preventDefault()
+      }} preventDefaultTouchmoveEvent={true}>
+      <div onWheel={(e) => scrollToVideo(e)} >
+      <CSSTransition        
         key={`video${i}`}
-        in={props.active}
-        appear
-        classNames="videos-loop"
-        timeout={2000}
+        in={props.active && isActive && ready }
+        appear={true}
+        classNames={scrollDirection ? "videos-loop" : "videos-loop-previous"}
+        timeout={2000}        
       >
-        <Suspense  fallback={<div>Loading...</div>}>
-          <Video src={video} />
+        <Suspense  fallback={<TrashSpinner />}>
+          <Video  ref={refs[i]} onReady={() => { if(isActive) {setReady(true)} }} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
         </Suspense>
       </CSSTransition>
+      <BackButton active={props.active} />
+      </div>
+      </Swipeable>
+      
     );
   });
+
+
+
+  
+
+
+  return videoComponents;
   
 }

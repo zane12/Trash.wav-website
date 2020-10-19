@@ -20,7 +20,7 @@ export default function Welcome(props) {
   return (
     <Router>
       
-      <BackgroundVideo onCanPlayThrough={setBgLoaded}  video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
+      <BackgroundVideo  onCanPlayThrough={setBgLoaded}  video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
       
       {bgLoaded ? <span><CSSTransition nodeRef={nodeRef} appear in={active} classNames="welcome" timeout={2000}>
         <div ref={nodeRef} className="welcome welcome-container">

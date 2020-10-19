@@ -9,13 +9,14 @@ export default function BackgroundVideo(props) {
   
   return (
     <CSSTransition
-      nodeRef={props.ref}
+    
       in={props.active}
       appear
       classNames="background"
       timeout={2000}
     >
       <video
+        
         onCanPlayThrough={() => { props.onCanPlayThrough(true) }}
         ref={props.ref}
         className="background"

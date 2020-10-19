@@ -1,0 +1,84 @@
+body {
+  overscroll-behavior: none;
+}
+
+.videos-loop {
+  display: none;
+  position: fixed;
+}
+
+.videos-loop-enter {
+  display: block;
+  bottom: 150%;
+  transition: position 2s ease-in-out;
+}
+
+.videos-loop-enter-active {
+  display: block;
+  bottom: 0;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-enter-done {
+  display: block;
+  bottom: 0;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-appear-done {
+  display: block;
+}
+
+.videos-loop-exit {
+  display: block;
+  bottom: 0;
+  transition: position 2s ease-in-out;
+}
+
+.videos-loop-exit-active {
+  display: block;
+  bottom: -150%;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-exit-done {
+  display: none;
+}
+
+.videos-loop-previous-enter {
+  display: block;
+  bottom: -150%;
+  transition: position 2s ease-in-out;
+}
+
+.videos-loop-previous-enter-active {
+  display: block;
+  bottom: 0;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-previous-enter-done {
+  display: block;
+  bottom: 0;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-previous-appear-done {
+  display: block;
+}
+
+.videos-loop-previous-exit {
+  display: block;
+  bottom: 0;
+  transition: position 2s ease-in-out;
+}
+
+.videos-loop-previous-exit-active {
+  display: block;
+  bottom: 150%;
+  transition: bottom 2s ease-in-out;
+}
+
+.videos-loop-previous-exit-done {
+  display: none;
+}
