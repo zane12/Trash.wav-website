@@ -10,3 +10,12 @@
 .hidden {
   display: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    margin: auto;
+    margin-top: -1em;
+    line-height: 0.9em;
+    font-size: 0.65em;
+  }
+}
