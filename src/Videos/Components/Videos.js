@@ -124,22 +124,22 @@ export default function Videos(props) {
     const isActive = active === i;   
       
     return (
-      <Swipeable onSwiped={scrollToVideo} onSwipedDown={(e)=> {
+      <Swipeable key={`video-swipe${i}`} onSwiped={scrollToVideo} onSwipedDown={(e)=> {
         e.event.preventDefault()
       }} preventDefaultTouchmoveEvent={true}>
       <div onWheel={(e) => scrollToVideo(e)} >
       <CSSTransition        
-        key={`video${i}`}
+        key={`video-transition${i}`}
         in={props.active && isActive && ready }
         appear={true}
         classNames={scrollDirection ? "videos-loop" : "videos-loop-previous"}
         timeout={2000}        
       >
         <Suspense  fallback={<div />}>
-          <Video  ref={refs[i]} onReady={() => { if(isActive) {setReady(true)} }} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
+          <Video key={`video${i}`} ref={refs[i]} onReady={() => { if(isActive) {setReady(true)} }} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
         </Suspense>
       </CSSTransition>
-      <BackButton active={props.active} />
+      <BackButton key={`video-back${i}`} active={props.active} />
       </div>
       </Swipeable>
       
