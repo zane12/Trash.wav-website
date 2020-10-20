@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import BackButton from '../../Interface/Components/BackButton'
+import Footer from '../../Interface/Components/Footer'
 
 export default function Music(props) {
   const [active, setActive] = useState(false)
+  const [footer, setFooter] = useState(false)
   
   return (
     <div>
@@ -14,6 +16,8 @@ export default function Music(props) {
           appear
           classNames="music"
           timeout={2000}
+          onEntered={() => setFooter(true)}
+          onExit={() => setFooter(false)}
         >
           <iframe
             onLoad={() => setActive(true)}
@@ -47,6 +51,7 @@ export default function Music(props) {
         ></iframe>
       </CSSTransition>
       <BackButton active={props.active} />
+      <Footer active={footer} />
     </div>
   );
 }

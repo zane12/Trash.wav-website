@@ -1,0 +1,10 @@
+.footer {
+  margin-top: -2em;
+  color: white;
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.hidden {
+  display: none;
+}

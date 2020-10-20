@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import BackButton from "../../Interface/Components/BackButton";
+import Footer from "../../Interface/Components/Footer";
 
 export default function News(props) {
   const [active, setActive] = useState(false)
+  const [footer, setFooter] = useState(false)
   
   
 
@@ -14,6 +16,8 @@ export default function News(props) {
         key="news"
         in={props.active && active}
         classNames="news"
+        onEntered={() => setFooter(true)}
+        onExit={() => setFooter(false)}
         timeout={2000}
       >
         <div className="news news-container">
@@ -44,9 +48,12 @@ export default function News(props) {
             used. Really for now its a test project so I just need some text
             here to test my CSS and whatnot.
           </p>
+          
         </div>
       </CSSTransition>
       <BackButton onLoad={()=>setActive(true)} active={props.active}/>
+      <Footer active={footer} />
+      
     </div>
   );
 }

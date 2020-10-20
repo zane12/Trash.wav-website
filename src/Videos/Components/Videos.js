@@ -4,7 +4,7 @@ import { Swipeable } from 'react-swipeable'
 
 
 import BackButton from '../../Interface/Components/BackButton'
-import TrashSpinner from '../../Interface/Components/TrashSpinner'
+
 import '../videos.css'
 
 
@@ -135,7 +135,7 @@ export default function Videos(props) {
         classNames={scrollDirection ? "videos-loop" : "videos-loop-previous"}
         timeout={2000}        
       >
-        <Suspense  fallback={<TrashSpinner />}>
+        <Suspense  fallback={<div />}>
           <Video  ref={refs[i]} onReady={() => { if(isActive) {setReady(true)} }} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
         </Suspense>
       </CSSTransition>

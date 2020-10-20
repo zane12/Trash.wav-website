@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 
 import BackgroundVideo from "../../Videos/Components/BackgroundVideo";
 import TrashSpinner from "./TrashSpinner"
+import Footer from "./Footer"
 
 import logo from "../../Interface/Images/trashwavlogo.png";
 
@@ -39,7 +40,9 @@ export default function Welcome(props) {
               <li className="welcome-links">Music</li>
             </Link>
           </ul>
+          <Footer active/>
         </div>
+        
       </CSSTransition>
       <Route exact path="/">
         {({ match }) => {
@@ -50,7 +53,9 @@ export default function Welcome(props) {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes setActive={setActive} />
       </Suspense>
+      
       </span> : <TrashSpinner />}
+      
     </Router>
   );
 }
