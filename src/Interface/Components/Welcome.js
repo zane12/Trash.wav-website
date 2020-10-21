@@ -20,7 +20,7 @@ export default function Welcome(props) {
 
   return (
     <Router>
-      
+      <div className="wrapper">
       <BackgroundVideo  onCanPlayThrough={setBgLoaded}  video="https://trashwav.s3.amazonaws.com/trashwav-axel.mp4" active={true} />
       
       {bgLoaded ? <span><CSSTransition nodeRef={nodeRef} appear in={active} classNames="welcome" timeout={2000}>
@@ -55,6 +55,7 @@ export default function Welcome(props) {
       </Suspense>
       
       </span> : <TrashSpinner />}
+      </div>
       
     </Router>
   );

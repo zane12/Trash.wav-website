@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap");
-
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   font-family: "Source Code Pro", monospace;
   background-color: orange;
   text-align: center;
@@ -19,6 +22,13 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
+  padding-bottom: 2em;
+}
+
+.wrapper {
+  height: 100%;
+  position: relative;
+  margin-bottom: 2em;
   padding-bottom: 2em;
 }
 
@@ -255,11 +265,16 @@ p.news {
   .logo {
     height: 15em;
     width: 30em;
+    margin-left: -1em;
   }
 
   .welcome-links {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  h1.news {
+    font-size: 5em;
   }
 }
 
