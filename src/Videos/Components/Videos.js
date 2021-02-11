@@ -4,7 +4,6 @@ import { Swipeable } from 'react-swipeable'
 
 
 import BackButton from '../../Interface/Components/BackButton'
-import TrashSpinner from '../../Interface/Components/TrashSpinner'
 
 import '../videos.css'
 
@@ -81,7 +80,6 @@ export default function Videos(props) {
   const [playing, setPlaying] = useState(null);
   const [throttled, setThrottled] = useState(false);
   const [active, setActive] = useState(0);
-  const [ready, setReady] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(false)
   
   
@@ -138,7 +136,7 @@ export default function Videos(props) {
         timeout={2000}        
       >
         <Suspense  fallback={<div />}>
-          <Video key={`video${i}`} ref={refs[i]} onReady={() => { if(isActive) {setReady(true)} }} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
+          <Video key={`video${i}`} ref={refs[i]} isPlaying={playing === i} src={video} onPlay={() => setPlaying(i)} />
         </Suspense>
       </CSSTransition>
       <BackButton key={`video-back${i}`} active={props.active} />
