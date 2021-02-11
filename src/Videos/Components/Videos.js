@@ -4,8 +4,10 @@ import { Swipeable } from 'react-swipeable'
 
 
 import BackButton from '../../Interface/Components/BackButton'
+import TrashSpinner from '../../Interface/Components/TrashSpinner'
 
 import '../videos.css'
+
 
 
 const Video = React.lazy(() => import("./Video"));
@@ -130,7 +132,7 @@ export default function Videos(props) {
       <div onWheel={(e) => scrollToVideo(e)} >
       <CSSTransition        
         key={`video-transition${i}`}
-        in={props.active && isActive && ready }
+        in={props.active && isActive }
         appear={true}
         classNames={scrollDirection ? "videos-loop" : "videos-loop-previous"}
         timeout={2000}        

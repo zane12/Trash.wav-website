@@ -44,6 +44,7 @@ export default function Welcome(props) {
         </div>
         
       </CSSTransition>
+      
       <Route exact path="/">
         {({ match }) => {
           setActive(match != null);

@@ -38,7 +38,7 @@ export default function Music(props) {
         appear
         classNames="music"
         timeout={2000}
-      >
+      >        
         <iframe
           title="spotifyFollow"
           className="follow-button"
@@ -48,9 +48,11 @@ export default function Music(props) {
           scrolling="no"
           frameBorder="0"
           allowtransparency="true"
-        ></iframe>
+        ></iframe>  
       </CSSTransition>
+      <div className='follow-button-spacer'/>
       <BackButton active={props.active} />
+      
       <Footer active={footer} />
     </div>
   );
